@@ -92,6 +92,6 @@ std::string RL_Match_History::GetGameTypeName(int gameType)
 	case 28:	return "Ranked Rumble";
 	case 29:	return "Ranked Drop Shot";
 	case 30:	return "Ranked Snow Day";
-	default:									return "Wait Until Game Starts";
+	default:	return "Wait Until Game Starts";
 	}
 }
