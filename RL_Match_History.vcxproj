@@ -110,6 +110,7 @@
     </ClCompile>
     <ClCompile Include="RL_Match_History.cpp" />
     <ClCompile Include="GuiBase.cpp" />
+    <ClCompile Include="Session.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DrawStats.h" />
@@ -131,6 +132,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="GuiBase.h" />
     <ClInclude Include="RL_Match_History.h" />
+    <ClInclude Include="Session.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
   <ItemGroup>
