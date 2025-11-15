@@ -6,6 +6,7 @@
 #include "bakkesmod/plugin/PluginSettingsWindow.h"
 
 #include "DrawStats.h"
+#include "Session.h"
 
 #include "version.h"
 constexpr auto plugin_version = stringify(VERSION_MAJOR) "." stringify(VERSION_MINOR) "." stringify(VERSION_PATCH) "." stringify(VERSION_BUILD);
@@ -15,10 +16,10 @@ class RL_Match_History: public BakkesMod::Plugin::BakkesModPlugin
 {
 private:
 	
+	// Variables
 	bool scoreboardOpen = false;
 	DrawStats drawStats;
-
-	std::string GetGameTypeName(int gameType);
+	Session session;
 
 public:
 	virtual void onLoad();

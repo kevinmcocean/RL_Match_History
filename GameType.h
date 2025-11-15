@@ -4,16 +4,9 @@
 #include "bakkesmod/plugin/pluginwindow.h"
 #include "bakkesmod/plugin/PluginSettingsWindow.h"
 
-#include "Session.h"
-
-class DrawStats
+class GameType
 {
-private:
-
-	// Variables
-	int alphaBox = 190;
-	int alphaText = 190;
-
 public:
-	void Render(class CanvasWrapper canvas, Session& session);
+	std::string GetGameTypeName(int gameType);
+
 };

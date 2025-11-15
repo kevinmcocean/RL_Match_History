@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "DrawStats.h"
 
-void DrawStats::Render(CanvasWrapper canvas)
+void DrawStats::Render(CanvasWrapper canvas, Session& session)
 {
 
     // Screen size
@@ -30,12 +30,12 @@ void DrawStats::Render(CanvasWrapper canvas)
     canvas.SetColor(0, 0, 0, alphaBox);
     canvas.DrawRect(boxStart, boxEnd);
 
-    // Draw Playlist and current MMR
+	// Setup initial draw position inside the box
     Vector2 drawPos;
     drawPos.X = boxStart.X + 5;
     drawPos.Y = boxStart.Y + 5;
-    canvas.SetColor(255, 255, 255, alphaText);
-    canvas.SetPosition(drawPos);
-    canvas.DrawString("Test");
+
+    // Render session details
+	session.Render(canvas, drawPos, alphaText);
 
 }
