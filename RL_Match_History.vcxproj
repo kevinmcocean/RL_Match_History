@@ -91,6 +91,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="DrawStats.cpp" />
     <ClCompile Include="GameType.cpp" />
     <ClCompile Include="imgui\imgui.cpp" />
@@ -112,8 +113,12 @@
     <ClCompile Include="RL_Match_History.cpp" />
     <ClCompile Include="GuiBase.cpp" />
     <ClCompile Include="Session.cpp" />
+    <ClCompile Include="sqlite3.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Database.h" />
     <ClInclude Include="DrawStats.h" />
     <ClInclude Include="GameType.h" />
     <ClInclude Include="imgui\imconfig.h" />
@@ -135,6 +140,7 @@
     <ClInclude Include="GuiBase.h" />
     <ClInclude Include="RL_Match_History.h" />
     <ClInclude Include="Session.h" />
+    <ClInclude Include="sqlite3.h" />
     <ClInclude Include="version.h" />
   </ItemGroup>
   <ItemGroup>

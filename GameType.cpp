@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "GameType.h"
+#include "Database.h"
 #include "DrawStats.h"
 
 
@@ -13,8 +14,23 @@ GameType::GameType(int playlist, float startingMMR)
 	this->currentStreak = 0;
 }
 
-void GameType::GameEnded(std::shared_ptr<class GameWrapper> gameWrapper) {
-	LOG("I DID THIS");
+void GameType::GameEnded(std::shared_ptr<class GameWrapper> gameWrapper, std::shared_ptr<class Database> db) {
+
+	std::string path = gameWrapper->GetDataFolder().string() + "/match_history.db";
+	db = std::make_shared<Database>(path);
+
+	// Log MMR
+	if (db->Open()) {
+		db->CreateTables();
+	}
+	else {
+		if (!db->m_db && db->Open()) {
+			db->CreateTables();
+		}
+	}
+
+	if (db) db->InsertMMR(playlist, currentMMR);
+
 }
 
 std::string GameType::GetGameTypeName(int gameType)

@@ -5,6 +5,8 @@
 #include "bakkesmod/plugin/pluginwindow.h"
 #include "bakkesmod/plugin/PluginSettingsWindow.h"
 
+#include "Database.h"
+
 class DrawStats;
 class CanvasWrapper;
 
@@ -27,7 +29,7 @@ public:
 	GameType(int playlist, float startingMMR);
 
 	// Game ended
-	void GameEnded(std::shared_ptr<class GameWrapper> gameWrapper);
+	void GameEnded(std::shared_ptr<class GameWrapper> gameWrapper, std::shared_ptr<class Database> db);
 
 	// Variable access
 	int getPlaylist() const { return playlist; };

@@ -5,6 +5,7 @@
 #include "bakkesmod/plugin/PluginSettingsWindow.h"
 
 #include "GameType.h"
+#include "Database.h"
 
 class DrawStats;
 class GameWrapper;
@@ -21,7 +22,11 @@ private:
 
 	GameType& getOrCreateGameType(int playlist, float currentMMR);
 
+	std::shared_ptr<Database> db;
+
 public:
+
+	Session(std::shared_ptr<GameWrapper> gameWrapper);
 
 	void GameEnded(std::shared_ptr<GameWrapper> gameWrapper);
 	void JoinedOnlineGame(std::shared_ptr<GameWrapper> gameWrapper);

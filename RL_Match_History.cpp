@@ -12,7 +12,7 @@ void RL_Match_History::onLoad()
 
 	// Construct members when plugin is loaded
 	drawStats = std::make_unique<DrawStats>();
-	session = std::make_unique<Session>();
+	session = std::make_unique<Session>(gameWrapper);
 
 	// Detect when scoreboard is opened
 	gameWrapper->HookEvent("Function TAGame.GFxData_GameEvent_TA.OnOpenScoreboard", [this](std::string eventName) { scoreboardOpen = true; });
@@ -32,7 +32,7 @@ void RL_Match_History::onLoad()
 
 	// Detect when game ends
 	gameWrapper->HookEventPost("Function TAGame.GameEvent_Soccar_TA.EventMatchWinnerSet", [this](std::string eventName) {
-
+		session->GameEnded(gameWrapper);
 	});
 
 	// Draw Stats
