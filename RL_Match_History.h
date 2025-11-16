@@ -4,6 +4,7 @@
 #include "bakkesmod/plugin/bakkesmodplugin.h"
 #include "bakkesmod/plugin/pluginwindow.h"
 #include "bakkesmod/plugin/PluginSettingsWindow.h"
+#include <memory>
 
 #include "DrawStats.h"
 #include "Session.h"
@@ -18,8 +19,8 @@ private:
 	
 	// Variables
 	bool scoreboardOpen = false;
-	DrawStats drawStats;
-	Session session;
+	std::unique_ptr<DrawStats> drawStats;
+	std::unique_ptr <Session> session;
 
 public:
 	virtual void onLoad();
