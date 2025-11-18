@@ -29,7 +29,7 @@ void GameType::GameEnded(std::shared_ptr<class GameWrapper> gameWrapper, std::sh
 		}
 	}
 
-	if (db) db->InsertMMR(playlist, currentMMR);
+	if (db) db->InsertMMR(playlist, GetGameTypeName(playlist), currentMMR);
 
 }
 

@@ -39,6 +39,7 @@ bool Database::CreateTables()
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
         "timestamp TEXT,"
         "playlist INTEGER,"
+		"playlist_name TEXT,"
         "mmr REAL);";
 
     char* errMsg = nullptr;
@@ -51,15 +52,16 @@ bool Database::CreateTables()
     return true;
 }
 
-bool Database::InsertMMR(int playlist, float mmr)
+bool Database::InsertMMR(int playlist, const std::string playlist_name, const float mmr)
 {
     if (!m_db) return false;
 
     std::string timestamp = std::to_string(std::time(nullptr));
     std::string sql =
-        "INSERT INTO mmr_history (timestamp, playlist, mmr) VALUES ('" +
+        "INSERT INTO mmr_history (timestamp, playlist, playlist_name, mmr) VALUES ('" +
         timestamp + "', " +
-        std::to_string(playlist) + ", " +
+        std::to_string(playlist) + ", '" +
+		playlist_name + "', " +
         std::to_string(mmr) + ");";
 
     char* errMsg = nullptr;

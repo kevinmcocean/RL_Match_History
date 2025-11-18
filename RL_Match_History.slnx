@@ -3,5 +3,5 @@
     <BuildType Name="Release" />
     <Platform Name="x64" />
   </Configurations>
-  <Project Path="RL_Match_History.vcxproj" />
+  <Project Path="RL_Match_History.vcxproj" Id="04bf7712-5174-490d-a086-a101c42e96bf" />
 </Solution>

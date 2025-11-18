@@ -21,7 +21,7 @@ public:
     bool Open();
     void Close();
     bool CreateTables();
-    bool InsertMMR(int playlist, float mmr);
+    bool InsertMMR(int playlist, const std::string playlist_name, float mmr);
     std::vector<MMRRecord> GetMMRHistory();
     sqlite3* m_db;
 
